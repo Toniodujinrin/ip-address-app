@@ -17,10 +17,14 @@ class Home extends Component {
     if (this.state.ip !== pS.ip) {
       this.setState({ data });
     }
+    console.log(data);
   }
 
   handleSearch = (value) => {
     this.setState({ ip: value });
+  };
+  handleClick = (e) => {
+    console.log(e);
   };
   render() {
     return (
@@ -31,7 +35,7 @@ class Home extends Component {
           <Info data={this.state.data} />
         </div>
         <div id="map-area">
-          <Maps />
+          <Maps data={this.state.data} handleClick={this.handleClick} />
         </div>
       </div>
     );
